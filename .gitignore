@@ -1,0 +1,28 @@
+.DS_Store
+bin/
+obj/
+min/
+*.psess
+*.vspx
+*.TMP
+tmp/
+
+*.Resharper
+*.user
+*.suo
+*.tss
+.vs/
+*~
+
+# Visual Studio
+.vs/restore.dg
+
+packages/
+EF/
+*.stackdump
+*.favdoc
+node_modules
+npm-debug.log
+
+# TEMP
+*.bak
