@@ -29,7 +29,17 @@ namespace EFQuestion
                 );
         }
 
-        public async Task<IEnumerable<QueryResult>> Search()
+        public async Task<IEnumerable<QueryResult>> SearchWithInline()
+        {
+            Expression<Func<Parent, bool>> expr = parent => parent.Active &&
+                                                            parent.Children.Any(
+                                                                program => program.Name.StartsWith("U"));
+            return await CreateQueryable(expr).ToListAsync();
+
+        }
+
+
+        public async Task<IEnumerable<QueryResult>> SearchWithExtracted()
         {
             Func<Child, bool> p = program => program.Name.StartsWith("U");
             Expression<Func<Parent, bool>> expr = parent => parent.Active
